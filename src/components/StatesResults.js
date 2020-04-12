@@ -15,24 +15,39 @@ class StatesResults extends React.Component {
       .catch(console.log);
   }
 
-  renderData() {
+  renderResult() {
     let listItems = this.state.results;
     if (this.props.onStateSelected.stateSelection !== "ALL") {
       listItems = listItems.filter(
         (e) => e.state === this.props.onStateSelected.stateSelection
       );
     }
+    let cards = listItems.map((d) => (
+      <div className="card-header" key={d.state}>
+        <div className="card-body">
+          <h5 className="card-title">State: {d.state}</h5>
+          <p className="card-text">Positives: {d.positive}</p>
+          <p className="card-text">Negatives: {d.negative}</p>
+          <p className="card-text">
+            Recovered: {typeof d.recovered === "number" ? d.recovered : 0}
+          </p>
+          <p className="card-text">Deaths: {d.death}</p>
+          <p className="card-text">Hospitalized: {d.hospitalized}</p>
+          <p className="card-text">
+            On Ventilator:{" "}
+            {typeof d.onVentilatorCurrently === "number"
+              ? d.onVentilatorCurrently
+              : 0}
+          </p>
+          <p className="card-text">Total Test Results: {d.totalTestResults}</p>
+        </div>
+      </div>
+    ));
 
-    listItems = listItems.map((d) => <li key={d.state}>{d.state}</li>);
-
-    return <div>{listItems}</div>;
+    return <div>{cards}</div>;
   }
   render() {
-    return (
-      <div className="row results">
-        <div> {this.renderData()}</div>
-      </div>
-    );
+    return this.renderResult();
   }
 }
 export default StatesResults;
