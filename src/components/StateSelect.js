@@ -12,8 +12,14 @@ class StateSelect extends React.Component {
   render() {
     return (
       <div className="col-sm-10">
+        <label
+          htmlFor="state"
+          className="col-sm-2 control-label font-weight-bold"
+        >
+          State
+        </label>
         <select
-          className="form-control"
+          className="dropdown"
           id="state"
           name="state"
           onChange={this.handleOnChange.bind(this)}

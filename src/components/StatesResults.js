@@ -26,9 +26,11 @@ class StatesResults extends React.Component {
     listItems.sort((a, b) => a.state.localeCompare(b.state));
 
     let cards = listItems.map((d) => (
-      <div className="card-header" key={d.state}>
-        <div className="card-body">
-          <h5 className="card-title">State: {d.state}</h5>
+      <div key={d.state}>
+        <div className="card-header border-secondary mb-3" key={d.state}>
+          <p className="font-weight-bold">State : {d.state} </p>
+        </div>
+        <div className="card-body text-primary">
           <p className="card-text">Positives: {d.positive}</p>
           <p className="card-text">Negatives: {d.negative}</p>
           <p className="card-text">
@@ -43,11 +45,12 @@ class StatesResults extends React.Component {
               : 0}
           </p>
           <p className="card-text">Total Test Results: {d.totalTestResults}</p>
+          <p className="card-text">Last Updated: {d.lastUpdateEt}</p>
         </div>
       </div>
     ));
 
-    return <div>{cards}</div>;
+    return <div className="card border-primary mb-3">{cards}</div>;
   }
   render() {
     return this.renderResult();

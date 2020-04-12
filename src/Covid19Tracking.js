@@ -18,13 +18,11 @@ class Covid19Tracking extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid border border-primary">
         <Header />
         <div className="form-group">
-          <label htmlFor="state" className="col-sm-2 control-label">
-            State
-          </label>
-          <StateSelect onStateChange={this.handleStateChange.bind(this)} />
+          <StateSelect onStateChange={this.handleStateChange.bind(this)} />{" "}
+          <br />
           <StatesResults onStateSelected={this.state} />
         </div>
         <Footer />
