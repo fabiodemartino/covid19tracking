@@ -22,6 +22,9 @@ class StatesResults extends React.Component {
         (e) => e.state === this.props.onStateSelected.stateSelection
       );
     }
+
+    listItems.sort((a, b) => a.state.localeCompare(b.state));
+
     let cards = listItems.map((d) => (
       <div className="card-header" key={d.state}>
         <div className="card-body">

@@ -1,10 +1,6 @@
 import React from "react";
 
 class StateSelect extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleOnChange(e) {
     const type = typeof this.props.onStateChange;
 
