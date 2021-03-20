@@ -7,7 +7,7 @@ class StatesResults extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://api.covidtracking.com/v1/states/info.json")
+    fetch("https://api.covidtracking.com/v1/states/current.json")
       .then((res) => res.json())
       .then((data) => {
         this.setState({ results: data });
